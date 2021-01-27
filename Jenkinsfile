@@ -15,5 +15,10 @@ pipeline {
 				sh './phpunit --version'
 			}
 		}
+		stage('Composer') {
+			steps {
+				sh 'composer require --dev phpunit/phpunit ^4'
+			}
+		}
 	}
 }
