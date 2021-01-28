@@ -1,6 +1,6 @@
 pipeline {
 	agent {
-		docker { image 'php:5.3' }
+		dockerfile { true }
 	}
 	stages {
 		stage('Php Version') {
