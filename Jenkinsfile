@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	stages {
-		stage('Php Version') {
+		/*stage('Php Version') {
 			steps {
 				sh 'php --version'
 			}
@@ -17,7 +17,7 @@ pipeline {
 			steps {
 				sh './phpunit tests'
 			}
-		}
+		}*/
 		stage('BuildAndTest') {
 			matrix {
 				agent any
