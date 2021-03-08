@@ -25,23 +25,26 @@ pipeline {
 				agent any
 					axes {
 						axis {
-							name 'PLATFORM'
-								values 'linux', 'windows', 'mac'
-						}
-						axis {
-							name 'BROWSER'
-								values 'firefox', 'chrome', 'safari', 'edge'
+							name 'PHP'
+								values '5.3', '5.6'
 						}
 					}
 				stages {
+					agent {
+						docker {
+							image 'php:${PHP}'
+						}
+					}
 					stage('Build') {
 						steps {
-							echo "Do Build for ${PLATFORM} - ${BROWSER}"
+							echo "Do Build for ${PHP}"
+							sh 'php --version'
 						}
 					}
 					stage('Test') {
 						steps {
-							echo "Do Test for ${PLATFORM} - ${BROWSER}"
+							echo "Do Test for ${PHP}"
+							sh 'php --version'
 						}
 					}
 				}
