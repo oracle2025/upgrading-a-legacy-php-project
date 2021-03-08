@@ -30,18 +30,23 @@ pipeline {
 						}
 					}
 				stages {
-					agent {
-						docker {
-							image 'php:${PHP}'
-						}
-					}
 					stage('Build') {
+						agent {
+							docker {
+								image 'php:${PHP}'
+							}
+						}
 						steps {
 							echo "Do Build for ${PHP}"
 							sh 'php --version'
 						}
 					}
 					stage('Test') {
+						agent {
+							docker {
+								image 'php:${PHP}'
+							}
+						}
 						steps {
 							echo "Do Test for ${PHP}"
 							sh 'php --version'
