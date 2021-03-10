@@ -22,7 +22,6 @@ pipeline {
 		}
 		stage('BuildAndTest') {
 			matrix {
-				agent any
 					axes {
 						axis {
 							name 'PHP'
