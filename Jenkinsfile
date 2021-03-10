@@ -44,5 +44,13 @@ pipeline {
 				}
 			}
 		}
+		stage('php5.6') {
+			agent {
+				docker { image 'php:5.6' }
+			}
+			steps {
+				sh 'php --version'
+			}
+		}
 	}
 }
