@@ -1,14 +1,18 @@
 pipeline {
-	agent {
-		docker { image 'php:5.3' }
-	}
+	agent none
 	stages {
 		stage('Php Version') {
+				agent {
+				    docker { image "php:5.3" }
+				}
 			steps {
 				sh 'php --version'
 			}
 		}
 		stage('Php Unit') {
+				agent {
+				    docker { image "php:5.3" }
+				}
 			steps {
 				sh 'curl -L https://phar.phpunit.de/phpunit-4.phar > phpunit'
 				sh 'chmod +x phpunit'
@@ -16,16 +20,22 @@ pipeline {
 			}
 		}
 		stage('Tests') {
+				agent {
+				    docker { image "php:5.3" }
+				}
 			steps {
 				sh './phpunit tests'
 			}
 		}
 		stage('BuildAndTest') {
 			matrix {
+				agent {
+				    docker { image "${DOCKER_IMAGE}" }
+				}
 					axes {
 						axis {
-							name 'PHP'
-								values '5.3', '5.6'
+							name 'DOCKER_IMAGE'
+							values 'php:5.3', 'php:5.6
 						}
 					}
 				stages {
@@ -44,13 +54,5 @@ pipeline {
 				}
 			}
 		}
-	/*	stage('php5.6') {
-			agent {
-				docker { image 'php:5.6' }
-			}
-			steps {
-				sh 'php --version'
-			}
-		}*/
 	}
 }
