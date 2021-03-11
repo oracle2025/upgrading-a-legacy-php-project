@@ -41,13 +41,13 @@ pipeline {
 				stages {
 					stage('Build') {
 						steps {
-							echo "Do Build for ${PHP}"
+							echo "Do Build for ${DOCKER_IMAGE}"
 							sh 'php --version'
 						}
 					}
 					stage('Test') {
 						steps {
-							echo "Do Test for ${PHP}"
+							echo "Do Test for ${DOCKER_IMAGE}"
 							sh 'php --version'
 						}
 					}
