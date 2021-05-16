@@ -39,6 +39,13 @@ pipeline {
 						}
 					}
 				stages {
+					stage('Download') {
+						steps {
+							sh 'php download_php_unit.php'
+							sh 'chmod +x phpunit'
+							sh './phpunit --version'
+						}
+					}
 					stage('Build') {
 						steps {
 							echo "Do Build for ${DOCKER_IMAGE}"
