@@ -41,7 +41,7 @@ pipeline {
 				stages {
 					stage('Download') {
 						steps {
-							sh 'php download_php_unit.php'
+							sh 'curl -L https://phar.phpunit.de/phpunit-4.phar > phpunit'
 							sh 'chmod +x phpunit'
 							sh './phpunit --version'
 						}
