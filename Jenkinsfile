@@ -56,6 +56,7 @@ pipeline {
 						steps {
 							echo "Do Test for ${DOCKER_IMAGE}"
 							sh 'php --version'
+							sh './phpunit tests'
 						}
 					}
 				}
