@@ -23,3 +23,6 @@
 /app/Config/core.php
 /app/Config/database.php
 /vendors/*
+php-server.log
+php-server.pid
+phpunit
