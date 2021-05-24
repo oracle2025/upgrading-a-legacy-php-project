@@ -3,7 +3,8 @@ A Tutorial on how to migrate a php project to a newer version, supported by Cont
 
 Open current directory in php 8 docker
 
-    docker run -p 8080:8080 -it -v `pwd`:`pwd` --workdir `pwd` php:8 /bin/bash
+    docker run -p 8080:8080 -it -v `pwd`:`pwd` --workdir `pwd` php:7 /bin/bash
+    docker-php-ext-install mysqli
 
 run php as local webserver
 
