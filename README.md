@@ -1,7 +1,7 @@
 # upgrading-a-legacy-php-project
 A Tutorial on how to migrate a php project to a newer version, supported by Continous Integration and tests
 
-Open current directory in php 8 docker
+Open current directory in php 7 docker
 
     docker run -p 8080:8080 -it -v `pwd`:`pwd` --workdir `pwd` php:7 /bin/bash
     docker-php-ext-install mysqli
