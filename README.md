@@ -12,7 +12,9 @@ run php as local webserver
 
 Start a mysql container and connect it to docker container
 
-    docker run --name=mysql1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e "MYSQL_ROOT_HOST=%"-d mysql/mysql-server:8.0
+    docker run --name=mysql1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e "MYSQL_ROOT_HOST=%" -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql/mysql-server:8.0
+
+    -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword
 
     docker network create my-net #creates a bridge network
     docker create --name my-sql --network my-net --publish 8080:80 mysql:latest # creates container that is available on my-net
