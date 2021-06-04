@@ -4,6 +4,7 @@ pipeline {
 		stage('Acceptance Tests') {
 			agent 	any
 			steps {
+				sh 'docker-compose run --rm composer install'
 				sh './run_tests.sh'
 			}
 		}
