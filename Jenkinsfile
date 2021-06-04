@@ -1,6 +1,12 @@
 pipeline {
 	agent none
 	stages {
+		stage('Acceptance Tests') {
+			agent 	any
+			steps {
+				sh './run_tests.sh'
+			}
+		}
 		stage('Php Version') {
 				agent {
 				    docker { image "php:5.3" }

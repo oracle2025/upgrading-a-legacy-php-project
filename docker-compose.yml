@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=django
+    expose:
+      - 3306
+  app:
+    restart: always
+    image: php:7
+    command: php -S 0.0.0.0:8000 /app/index.php
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    user: ${HOST_UID_GID}
+
+  composer:
+    restart: 'no'
+    image: composer/composer:latest
+    command: install
+    volumes:
+      - .:/app
+    user: ${HOST_UID_GID}
+
