@@ -10,7 +10,7 @@ services:
   app:
     restart: always
     image: php:7
-    command: php -S 0.0.0.0:8000 /app/index.php
+    command: php /app/index.php
     ports:
       - "8000:8000"
     volumes:
